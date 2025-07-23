@@ -1,0 +1,9 @@
+/usr/local/nginx/logs/*log{
+    daily
+    rotate 10
+    notifempty
+    nocompress
+    postrotate
+    /usr/local/nginx/sbin/nginx -s reopen
+endscript
+}

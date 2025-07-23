@@ -1,0 +1,8 @@
+####/data/fpm/packages/nginx；nginx的全局目录
+####-v "xdk1.26.2" 版本号
+####--after-install /data/fpm/packages/scripts/after-install-nginx.sh 安装后执行的脚本
+####--before-remove /data/fpm/packages/scripts/before-remove-nginx.sh 卸载前执行的脚本
+####-p /data/fpm/packages/output/ 打包输出路径,-f 强制替换之前存在的包
+fpm -s dir -C /data/fpm/packages/nginx -t rpm -n nginx -v "xm-nginx-1.26.2" --after-install /data/fpm/packages/scripts/after-install-nginx.sh --before-remove /data/fpm/packages/scripts/before-remove-nginx.sh -f -p /data/fpm/packages/output/
+
+
