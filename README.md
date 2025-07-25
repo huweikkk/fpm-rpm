@@ -1,6 +1,6 @@
-#Centos7下运维常用中间件，使用fpm输出rpm包
+# Centos7下运维常用中间件，使用fpm输出rpm包
 
-##fpm打包命令
+## fpm打包命令
 
 ```
 cat Dockerfile
@@ -93,7 +93,7 @@ fpm -s dir \
   -f \
   -p /data/fpm/packages/output/
 ```
-###中间件配置文件以及密码
+### 中间件配置文件以及密码
 | 中间件     | 目录                | 配置文件                               | 启动服务               | 默认密码                      |
 |------------|---------------------|----------------------------------------|------------------------|-------------------------------|
 | nginx      | /usr/local/nginx/    | /usr/local/nginx/conf/nginx.conf       | systemctl start nginx   |                               |
