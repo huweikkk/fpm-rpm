@@ -1,4 +1,16 @@
+#Centos7下运维常用中间件，使用fpm输出rpm包
+
+##fpm打包命令
+
 ```
+cat Dockerfile
+FROM tenzer/fpm:latest
+
+ENTRYPOINT ["/bin/sh"]
+
+docker build -t fpm .
+docker run --name fpm -it -d -v /data:/data fpm
+
 fpm -s dir \
   -C /data/fpm/packages/nginx \
   -t rpm \
@@ -81,3 +93,12 @@ fpm -s dir \
   -f \
   -p /data/fpm/packages/output/
 ```
+###中间件配置文件以及密码
+| 中间件     | 目录                | 配置文件                               | 启动服务               | 默认密码                      |
+|------------|---------------------|----------------------------------------|------------------------|-------------------------------|
+| nginx      | /usr/local/nginx/    | /usr/local/nginx/conf/nginx.conf       | systemctl start nginx   |                               |
+| redis      | /usr/local/redis/    | /usr/local/redis/etc/redis.conf        | systemctl start redis   | 默认不启用，自行修改配置       |
+| php-fpm56  | /usr/local/php56     | /usr/local/php56/etc/php-fpm.conf      | systemctl start php-fpm56|                               |
+| php-fpm7   | /usr/local/php7      | /usr/local/php7/etc/php-fpm.conf       | systemctl start php-fpm7 |                               |
+| php-fpm74  | /usr/local/php74     | /usr/local/php74/etc/php-fpm.conf      | systemctl start php-fpm74|                               |
+| mysql      | /usr/local/mysql/    | /etc/my.cnf                            | systemctl start mysqld  | tQVy4#zEo0xqWHu8               |
